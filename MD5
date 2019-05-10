@@ -1,6 +1,6 @@
-f6920ff306393bb5f7b18dcb6eda9caa *DESCRIPTION
+d3593d7f884fb5eb072f731c78163dcd *DESCRIPTION
 957ca5f167e87499688638d12b444d9d *NAMESPACE
-b838aef5a267647d945e25f949390b88 *NEWS.md
+3803264ffc34e01ae8bbc30bd4bb1ac0 *NEWS.md
 5a20bd9f349068eed732188a9fa8e637 *R/ECOS_exitcodes.R
 fa84ea8283f78978be299d2f8df011b4 *R/ECOSolveR.R
 85f38f5f153a16d0b325dd97854373fb *R/ecos.R
@@ -11,7 +11,7 @@ fa84ea8283f78978be299d2f8df011b4 *R/ECOSolveR.R
 abab41cae4ce94459d15bb4e3324a797 *data/ECOS_exitcodes.rda
 189a597ce1e9b8a04601c6577962ef16 *inst/doc/examples.R
 8b307a2d546fcfeab122096bd2dc3a55 *inst/doc/examples.Rmd
-3a2477247669d97b9af1b040153acc81 *inst/doc/examples.html
+981642096fd80d0f1e4c398a010242ed *inst/doc/examples.html
 d0de239a29ddffcaa6c201cc4453598f *inst/testdata/MPC01_1.RDS
 d27e999a473cd40a8465d89b671db3dc *inst/testdata/MPC02_1.RDS
 028a446d138e49d8c6a94d4fe81e9515 *inst/testdata/emptyProblem_1.RDS
@@ -44,7 +44,7 @@ fa4b97ce4f23aee36218a90a2fc5dbc4 *inst/testdata/update_data_1.RDS
 a15d014bc2039a1bc003fb46fa80624a *man/ECOS_exitcodes.Rd
 5e189f32fab87152745de651bdc695f7 *man/ECOSolveR.Rd
 3a47b681f1a963c7dd137f1a5a796735 *man/ecos.control.Rd
-0336b809ec1c7311da5dd6ebd93bc835 *src/Makevars
+41ed47fb6c5b36a3fbb5fef74f4426aa *src/Makevars
 7cf9d3278ac8d2233a78e601d3eb0521 *src/Makevars.win
 e5a967bac72de05aa080b566caff6e36 *src/ecos-2954b2a-changes/Makefile
 0cf7744a6140fcebba848882940cc8fc *src/ecos-2954b2a-changes/README.txt
