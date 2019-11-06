@@ -188,8 +188,11 @@ ECOS_csolve <- function(c = numeric(0), G = NULL, h=numeric(0),
     nC <- length(c)
 
     if (nullG) {
-        Gpr <- Gir <- Gjc <- h <- NULL
-        mG <- nG <- 0L
+        Gpr <- h <- numeric(0)
+        Gir <- integer(0)
+        Gjc <- integer(nC + 1L)
+        mG <- 0L
+        nG <- nC
     } else {
         if ( inherits(G, "CsparseMatrix") ) {
             Gpr <- G@x
@@ -219,10 +222,10 @@ ECOS_csolve <- function(c = numeric(0), G = NULL, h=numeric(0),
             Air <- A@i
             Ajc <- A@p
         } else if (inherits(G, c("matrix", "simple_triplet_matrix"))) {
-            csc <- make_csc_matrix(G)
-            Gpr <- csc[["values"]]
-            Gir <- csc[["matind"]]
-            Gjc <- csc[["matbeg"]]
+            csc <- make_csc_matrix(A)
+            Apr <- csc[["values"]]
+            Air <- csc[["matind"]]
+            Ajc <- csc[["matbeg"]]
         } else {
             stop("A is required to be of class dgCMatrix")
         }
