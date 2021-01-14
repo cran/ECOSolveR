@@ -1,18 +1,22 @@
 Package: ECOSolveR
 Type: Package
 Title: Embedded Conic Solver in R
-Version: 0.5.3
-Date: 2019-11-05
+Version: 0.5.4
+Date: 2021-01-05
 VignetteBuilder: knitr
 Authors@R: c(person("Anqi", "Fu", role = c("aut"),
 	   	    email = "anqi.fu.1987@gmail.com"),
   	     person("Balasubramanian", "Narasimhan", role = c("aut", "cre"),
 	   	    email = "naras@stat.Stanford.EDU"),
 	     person("Florian", "Schwendinger", role = c("ctb"),
-	             email = "FlorianSchwendinger@gmx.at"))
+	             email = "FlorianSchwendinger@gmx.at")
+	   , person("Martin", "Maechler", role = "ctb",
+	             email = "maechler@stat.math.ethz.ch")
+	   )
 SystemRequirements: GNU make
-URL: https://bnaras.github.io/ECOSolveR
+URL: https://bnaras.github.io/ECOSolveR/
 BugReports: https://github.com/bnaras/ECOSolveR/issues
+Imports: methods
 Suggests: knitr, rmarkdown, testthat, Matrix, covr, slam
 Description: R interface to the Embedded COnic Solver (ECOS), an efficient
 	     and robust C library for convex problems. Conic and equality
@@ -22,12 +26,13 @@ Description: R interface to the Embedded COnic Solver (ECOS), an efficient
 	     similar calling conventions.
 License: GPL (>= 3)
 Encoding: UTF-8
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1
 NeedsCompilation: yes
-Packaged: 2019-11-05 19:54:18 UTC; naras
+Packaged: 2021-01-13 03:40:31 UTC; naras
 Author: Anqi Fu [aut],
   Balasubramanian Narasimhan [aut, cre],
-  Florian Schwendinger [ctb]
+  Florian Schwendinger [ctb],
+  Martin Maechler [ctb]
 Maintainer: Balasubramanian Narasimhan <naras@stat.Stanford.EDU>
 Repository: CRAN
-Date/Publication: 2019-11-06 09:30:02 UTC
+Date/Publication: 2021-01-14 06:20:36 UTC
