@@ -2,18 +2,20 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 
-
 # ECOSolveR
 
-[![Travis-CI Build Status](https://travis-ci.org/bnaras/ECOSolveR.svg?branch=master)](https://travis-ci.org/bnaras/ECOSolveR)
-[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/ECOSolveR)](https://cran.r-project.org/package=ECOSolveR)
-[![Coverage Status](https://codecov.io/gh/bnaras/ECOSolveR/branch/master/graph/badge.svg)](https://codecov.io/gh/bnaras/ECOSolveR)
+  [![R-CMD-check](https://github.com/bnaras/ECOSolveR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/bnaras/ECOSolveR/actions/workflows/R-CMD-check.yaml)
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/ECOSolveR)](https://cran.r-project.org/package=ECOSolveR)
+[![Coverage
+Status](https://img.shields.io/codecov/c/github/bnaras/ECOSolveR/master.svg)](https://app.codecov.io/github/bnaras/ECOSolveR?branch=master)
+[![](https://cranlogs.r-pkg.org/badges/ECOSolveR)](https://CRAN.R-project.org/package=ECOSolveR)
 
 Embedded Conic Solver in R. This is an R wrapper around the
 [ecos](https://github.com/embotech/ecos) project on GitHub which
 describes ECOS as below.
 
-ECOS is a numerical software for solving convex second-order cone programs (SOCPs) of type
+ECOS is a numerical software for solving convex second-order cone
+programs (SOCPs) of type
 
 $$
 \mbox{Minimize } c'x \mbox{ such that } {\mathbf Ax} = {\mathbf b} \mbox{ and } {\mathbf G \mathbf x}\,\, \leq_{\mathbf K}\,\, {\mathbf h}
