@@ -23,8 +23,6 @@
  * used predominantly in preproc.c
  */
 
-#include "ecos.h"
-
 #if defined EQUILIBRATE && EQUILIBRATE > 0
 
 #ifndef __EQUIL_H__
@@ -34,7 +32,7 @@
 #include "ecos.h"
 
 /**
- * set_equilibration: This routine takes the workspace and sets 
+ * set_equilibration: This routine takes the workspace and sets
  * the equilibration vectors.
  */
 void set_equilibration(pwork *w);

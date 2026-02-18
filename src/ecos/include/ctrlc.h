@@ -44,5 +44,4 @@ int check_ctrlc(void);
 
 #endif /* END IF CTRLC > 0 */
 
-#endif /* END IFDEF __TIMER_H__ */
-
+#endif /* END IFDEF __CTRLC_H__ */

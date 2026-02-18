@@ -17,12 +17,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <R.h>
-
 /* data type definitions used with ECOS */
 
 #ifndef __GLBLOPTS_H__
 #define __GLBLOPTS_H__
+
+#include <R.h>
 
 /* SET PRINT LEVEL ----------------------------------------------------- */
 #define PRINTLEVEL (2)     /* 0: no prints					             */
@@ -74,7 +74,7 @@ typedef double pfloat;              /* for numerical values  */
 #include <Python.h>
 #define PRINTTEXT PySys_WriteStdout
 #else
-#define PRINTTEXT printf
+#define PRINTTEXT Rprintf
 #endif
 #include <stdio.h>
 #else

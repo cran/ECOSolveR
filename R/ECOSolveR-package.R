@@ -5,7 +5,7 @@
 #'
 #' @references \url{https://github.com/embotech/ecos}
 #' @useDynLib ECOSolveR
-#' @docType package
-#' @name ECOSolveR
-#'
-NULL
+#' @importFrom methods as
+#' @name ECOSolveR-package
+#' @keywords internal
+"_PACKAGE"

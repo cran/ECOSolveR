@@ -23,6 +23,9 @@
  *
  */
 
+/* NOTE: cone.h must be included before the guard due to circular dependency:
+ * cone.h includes expcone.h to get the expcone typedef, and expcone.h
+ * includes cone.h. The pre-guard include ensures correct resolution. */
 #include "cone.h"
 #include "glblopts.h"
 #include "wright_omega.h"
@@ -84,4 +87,3 @@ idxint evalExpDualFeas(pfloat *s, idxint nexc);
 
 #endif
 #endif /* End ifndef __ECOS_EXP_H__ */
-

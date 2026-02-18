@@ -24,9 +24,9 @@ pfloat wrightOmega(pfloat z)
     pfloat r  = 0.0;
     pfloat q  = 0.0;
     pfloat zi = 0.0;
-    
+
 	if(z<0.0) return -1; /* Fail if the input is not supported */
-	
+
 	if(z<1.0+M_PI)      /* If z is between 0 and 1+pi */
     {
         q = z-1;
@@ -37,9 +37,9 @@ pfloat wrightOmega(pfloat z)
         r *= q;
         w -= 1/192.0*r;
         r *= q;
-        w -= 1/3072.0*q;
+        w -= 1/3072.0*r;
         r *= q; /* (z-1)^5 */
-        w += 13/61440.0*q;
+        w += 13/61440.0*r;
         /* Initialize with the taylor series */
     }
     else

@@ -52,3 +52,22 @@ u <- z$x[(n+1):(2*n)]
 nnzx = sum(abs(x) > 1e-8)
 sprintf("x reconstructed with %d non-zero entries", nnzx / length(x) * 100)
 
+## -----------------------------------------------------------------------------
+## Set up workspace once
+ws <- ECOS_setup(c = c, G = G, h = h, dims = dims, A = Atilde, b = b)
+
+## Sweep a parameter: scale h from 0 to 1
+alphas <- seq(0, 1, length.out = 11)
+pcosts <- numeric(length(alphas))
+
+for (i in seq_along(alphas)) {
+    ECOS_update(ws, h = h + alphas[i])
+    res <- ECOS_solve(ws)
+    pcosts[i] <- res$summary[["pcost"]]
+}
+
+ECOS_cleanup(ws)
+
+## Show results
+data.frame(alpha = alphas, pcost = round(pcosts, 4))
+

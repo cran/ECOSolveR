@@ -176,15 +176,15 @@ static pfloat abs_2(pfloat number){
 }
 
 static pfloat pfloat_round(pfloat number){
-    return (number >= 0) ? (int)(number + 0.5) : (int)(number - 0.5);
+    return (number >= 0) ? (pfloat)(long long)(number + 0.5) : (pfloat)(long long)(number - 0.5);
 }
 
 static pfloat pfloat_ceil(pfloat number, pfloat integer_tol){
-	return (pfloat) (number < 0 ? (int) number : (int) (number+(1-integer_tol)) );
+	return (pfloat) (number < 0 ? (long long) number : (long long) (number+(1-integer_tol)) );
 }
 
 static pfloat pfloat_floor(pfloat number, pfloat integer_tol){
-    return (pfloat) (number < 0 ? (int) (number-(1-integer_tol)) : (int) number);
+    return (pfloat) (number < 0 ? (long long) (number-(1-integer_tol)) : (long long) number);
 }
 
 static idxint float_eqls(pfloat a, pfloat b, pfloat integer_tol){

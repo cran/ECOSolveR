@@ -1231,7 +1231,38 @@ idxint ECOS_solve(pwork* w)
 #endif
                 }
                 break;
+            }
+            /* stuck on NAN? */
+            else if( isnan(w->info->pcost) ){
+#if PRINTLEVEL > 0
+                const char *what = "Reached NAN dead end";
+#endif
+                /* Determine whether current iterate is better than what we had so far */
+                if( compareStatistics( w->info, w->best_info) ){
+#if PRINTLEVEL > 0
+                    if( w->stgs->verbose )
+                        PRINTTEXT("%s, stopping.\n",what);
+#endif
+                } else {
+#if PRINTLEVEL > 0
+                    if( w->stgs->verbose )
+                        PRINTTEXT("%s, recovering best iterate (%i) and stopping.\n", what, (int)w->best_info->iter);
+#endif
+                    restoreBestIterate( w );
+                }
 
+                /* Determine whether we have reached reduced precision */
+                exitcode = checkExitConditions( w, ECOS_INACC_OFFSET );
+                if( exitcode == ECOS_NOT_CONVERGED_YET ){
+                    exitcode = ECOS_NUMERICS;
+#if PRINTLEVEL > 0
+                    if( w->stgs->verbose ) {
+                        const char* what = interrupted ? "INTERRUPTED" : "RAN OUT OF ITERATIONS";
+                        PRINTTEXT("\n%s (reached feastol=%3.1e, reltol=%3.1e, abstol=%3.1e).", what, MAX(w->info->dres, w->info->pres), w->info->relgap, w->info->gap);
+                    }
+#endif
+                }
+                break;
             }
         } else {
 
@@ -1621,25 +1652,44 @@ void ECOS_updateData(pwork *w, pfloat *Gpr, pfloat *Apr,
     idxint k;
 
 #if defined EQUILIBRATE && EQUILIBRATE > 0
+    /* Only unequilibrate the old data if the new data is in a different location in memory. */
+    /* This is required for backward compatibility since existing code might need this step. */
+    if (
+        ((Gpr + w->G->nnz < w->G->pr) || (w->G->pr + w->G->nnz < Gpr)) &&
+        ((Apr + w->A->nnz < w->A->pr) || (w->A->pr + w->A->nnz < Apr)) &&
+        ((c + w->n < w->c) || (w->c + w->n < c)) &&
+        ((h + w->m < w->h) || (w->h + w->m < h)) &&
+        ((b + w->p < w->b) || (w->b + w->p < b))
+    ){
     unset_equilibration(w);
+    }
 #endif
 
     /* update pointers */
-    w->G->pr = Gpr;
-    w->A->pr = Apr;
+    if(w->G){
+        w->G->pr = Gpr;
+        w->h = h;
+    }
+    if(w->A){
+        w->A->pr = Apr;
+        w->b = b;
+    }
     w->c = c;
-    w->h = h;
-    w->b = b;
 
 #if defined EQUILIBRATE && EQUILIBRATE > 0
+    /* Here, we need to equilibrate unconditionally since all new data is unequilibrated. */
     set_equilibration(w);
 #endif
 
     /* update KKT matrix */
-    for (k=0; k<w->A->nnz; k++){
-        w->KKT->PKPt->pr[w->KKT->PK[w->AtoK[k]]] = Apr[k];
+    if(w->A){
+        for (k=0; k<w->A->nnz; k++){
+            w->KKT->PKPt->pr[w->KKT->PK[w->AtoK[k]]] = Apr[k];
+        }
     }
-    for (k=0; k<w->G->nnz; k++){
-        w->KKT->PKPt->pr[w->KKT->PK[w->GtoK[k]]] = Gpr[k];
+    if(w->G){
+        for (k=0; k<w->G->nnz; k++){
+            w->KKT->PKPt->pr[w->KKT->PK[w->GtoK[k]]] = Gpr[k];
+        }
     }
 }

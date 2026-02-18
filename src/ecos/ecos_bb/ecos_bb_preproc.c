@@ -236,6 +236,27 @@ ecos_bb_pwork* ECOS_BB_setup(
         Apr, Ajc, Air,
         c, prob->h_new, b);
 
+    if (prob->ecos_prob == NULL) {
+        /* ECOS_setup failed; free everything we allocated and return NULL */
+        FREE(prob->Gpr_new);
+        FREE(prob->Gjc_new);
+        FREE(prob->Gir_new);
+        FREE(prob->h_new);
+        FREE(prob->nodes);
+        FREE(prob->bool_node_ids);
+        FREE(prob->int_node_ids);
+        FREE(prob->tmp_bool_node_id);
+        FREE(prob->tmp_int_node_id);
+        FREE(prob->x);
+        FREE(prob->y);
+        FREE(prob->z);
+        FREE(prob->s);
+        FREE(prob->info);
+        if (prob->default_settings) { FREE(prob->stgs); }
+        FREE(prob);
+        return NULL;
+    }
+
     /* Store the number of integer variables in the problem*/
     prob->num_bool_vars = num_bool_vars;
     prob->num_int_vars = num_int_vars;
@@ -281,6 +302,10 @@ ecos_bb_pwork* ECOS_BB_setup(
 void ECOS_BB_cleanup(ecos_bb_pwork* prob, idxint num_vars_keep){
     /* FREE solver memory*/
     ECOS_cleanup(prob->ecos_prob, num_vars_keep);
+    FREE(prob->Gpr_new);
+    FREE(prob->Gjc_new);
+    FREE(prob->Gir_new);
+    FREE(prob->h_new);
     FREE(prob->tmp_bool_node_id);
     FREE(prob->tmp_int_node_id);
     FREE(prob->nodes);

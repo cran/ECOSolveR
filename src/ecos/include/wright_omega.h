@@ -16,6 +16,9 @@
  * ISSN: 0098-3500 EISSN: 1557-7295 doi>10.1145/2168773.2168779
  */
 
+#ifndef __WRIGHT_OMEGA_H__
+#define __WRIGHT_OMEGA_H__
+
 #include "glblopts.h"
 
 #if (defined _WIN32 || defined _WIN64 || defined _WINDLL )
@@ -24,3 +27,5 @@
 #include <math.h>
 
 pfloat wrightOmega(pfloat z);
+
+#endif /* __WRIGHT_OMEGA_H__ */
