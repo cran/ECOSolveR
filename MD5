@@ -1,6 +1,6 @@
-3d8a26701f41106078c898b3d08665e0 *DESCRIPTION
+6d6d7588c3611c499a3ba0732b50cba9 *DESCRIPTION
 af2335e6369c6bb9437666168470b94a *NAMESPACE
-e0c68784c3f850b13088803155b41c8f *NEWS.md
+8de6cc190798ff479ba8cade0a4b9d88 *NEWS.md
 5a20bd9f349068eed732188a9fa8e637 *R/ECOS_exitcodes.R
 67587e0e0e92680bb580ed95f1cc5ea2 *R/ECOSolveR-package.R
 f71836b6f21354f0c75ea2ea9cab25e3 *R/ecos.R
@@ -11,7 +11,7 @@ cdc746d812559f2cb27b0d3b414590c4 *build/vignette.rds
 abab41cae4ce94459d15bb4e3324a797 *data/ECOS_exitcodes.rda
 5e305463cced057d61685ee14951b8b1 *inst/doc/examples.R
 567265210194c2228a2c76cda0c206b6 *inst/doc/examples.Rmd
-4dfaecbce948c62a577b9e9c3bfa001f *inst/doc/examples.html
+d4182cb25aa2121fb1155eac504f2439 *inst/doc/examples.html
 d0de239a29ddffcaa6c201cc4453598f *inst/testdata/MPC01_1.RDS
 d27e999a473cd40a8465d89b671db3dc *inst/testdata/MPC02_1.RDS
 028a446d138e49d8c6a94d4fe81e9515 *inst/testdata/emptyProblem_1.RDS
@@ -157,7 +157,7 @@ d691c5a36bccfe1bb0ad868ea58fbdff *src/ecos/test/qcml/README.md
 a2f639b10f125ff3a89232efcb09d89a *src/ecos/test/unboundedProblems/unboundedLP1.h
 11e35b50750dd1dae80934aa069d2cb9 *src/ecos/test/unboundedProblems/unboundedMaxSqrt.h
 23db31a9268fb67d7afcf5efeb4bf392 *src/ecos/test/updateData/update_data.h
-fda376cf171d34ccdf1d8e0b08c418cc *src/ecosolve.c
+ffbfd1bb7cceea80e2539a30169874b7 *src/ecosolve.c
 0323f69d64948f1eeef97340fef15976 *src/ecosolver_init.c
 12889dcf0a85c105917e2e6df4328e77 *tests/testthat.R
 54a619caadb03dfab3d92a5c51d8b0c8 *tests/testthat/test-bb.R
